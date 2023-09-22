@@ -10,8 +10,8 @@
     "eslint-fix": "eslint --fix --ext .ts,.js,.tsx,.jsx src",
     "prettier-check": "prettier --check src",
     "prettier-format": "prettier --write src",
-    "lint": "pnpm prettier-check && pnpm eslint-check",
-    "lint-fix": "pnpm prettier-format && pnpm eslint-fix"
+    "lint": "bun prettier-check && bun eslint-check",
+    "lint-fix": "bun prettier-format && bun eslint-fix"
   },
   "license": "MIT",
   "devDependencies": {
