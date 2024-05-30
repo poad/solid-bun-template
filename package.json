@@ -26,11 +26,11 @@
     "eslint-plugin-solid": "^0.14.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11",
+    "vite": "^5.2.12",
     "vite-plugin-solid": "^2.10.2"
   },
   "dependencies": {
-    "@solidjs/router": "^0.13.3",
+    "@solidjs/router": "^0.13.4",
     "solid-js": "^1.8.17"
   },
   "packageManager": "pnpm@9.0.6+sha512.f6d863130973207cb7a336d6b439a242a26ac8068077df530d6a86069419853dc1ffe64029ec594a9c505a3a410d19643c870aba6776330f5cfddcf10a9c1617"
