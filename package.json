@@ -12,13 +12,13 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
+    "@eslint/js": "^9.21.0",
     "@stylistic/eslint-plugin": "^4.0.1",
     "@stylistic/eslint-plugin-js": "^4.0.1",
     "@stylistic/eslint-plugin-jsx": "^4.0.1",
     "@stylistic/eslint-plugin-plus": "^4.0.1",
     "@stylistic/eslint-plugin-ts": "^4.0.1",
-    "eslint": "^9.20.1",
+    "eslint": "^9.21.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-solid": "^0.14.5",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.15.3",
-    "solid-js": "^1.9.4"
+    "solid-js": "^1.9.5"
   },
   "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
 }
