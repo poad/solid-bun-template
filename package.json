@@ -18,9 +18,9 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-solid": "^0.14.5",
-    "pnpm": "^10.28.0",
+    "pnpm": "^10.28.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0",
+    "typescript-eslint": "^8.53.1",
     "vite": "^7.3.1",
     "vite-plugin-solid": "^2.11.10"
   },
@@ -28,5 +28,5 @@
     "@solidjs/router": "^0.15.4",
     "solid-js": "^1.9.10"
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.1"
 }
