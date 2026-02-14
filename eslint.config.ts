@@ -1,9 +1,9 @@
 import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
+// import { FlatCompat } from '@eslint/eslintrc';
 import stylistic from '@stylistic/eslint-plugin';
 import {parser, configs} from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
-// @ts-expect-error ignore plugin type
 import pluginPromise from 'eslint-plugin-promise';
 import solid from 'eslint-plugin-solid/configs/typescript';
 
@@ -14,6 +14,13 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '.gitignore');
+
+// const compat = new FlatCompat({
+//     baseDirectory: __dirname,                  // optional; default: process.cwd()
+//     resolvePluginsRelativeTo: __dirname,       // optional
+//     recommendedConfig: eslint.configs.recommended, // optional unless you're using "eslint:recommended"
+//     allConfig: eslint.configs.all,                 // optional unless you're using "eslint:all"
+// });
 
 export default defineConfig(
   includeIgnoreFile(gitignorePath),
@@ -41,7 +48,7 @@ export default defineConfig(
       sourceType: 'module',
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: __dirname,
       },
     },
     extends: [
