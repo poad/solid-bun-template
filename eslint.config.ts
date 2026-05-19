@@ -1,4 +1,6 @@
-import { defineConfig, includeIgnoreFile } from 'eslint/config';
+// import { defineConfig, includeIgnoreFile } from 'eslint/config';
+import { defineConfig } from 'eslint/config';
+import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import {parser, configs} from 'typescript-eslint';
@@ -34,11 +36,9 @@ export default defineConfig(
   pluginPromise.configs['flat/recommended'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
-  // @ts-expect-error ignore type errors
-  solid.configs['flat/typescript']
   {
     files: ['src/**/*.{ts,tsx}'],
-    // ...solid,
+    ...solid,
     languageOptions: {
       parser,
       ecmaVersion: 'latest',
