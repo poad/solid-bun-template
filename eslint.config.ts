@@ -1,26 +1,19 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, includeIgnoreFile } from 'eslint/config';
 import eslint from '@eslint/js';
-// import { FlatCompat } from '@eslint/eslintrc';
 import stylistic from '@stylistic/eslint-plugin';
 import {parser, configs} from 'typescript-eslint';
-import importPlugin from 'eslint-plugin-import';
+import { importX, createNodeResolver } from 'eslint-plugin-import-x';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
-import solid from 'eslint-plugin-solid/configs/typescript';
+import solid from "eslint-plugin-solid/configs/typescript";
 
-import { includeIgnoreFile } from '@eslint/compat';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '.gitignore');
-
-// const compat = new FlatCompat({
-//     baseDirectory: __dirname,                  // optional; default: process.cwd()
-//     resolvePluginsRelativeTo: __dirname,       // optional
-//     recommendedConfig: eslint.configs.recommended, // optional unless you're using "eslint:recommended"
-//     allConfig: eslint.configs.all,                 // optional unless you're using "eslint:all"
-// });
 
 export default defineConfig(
   includeIgnoreFile(gitignorePath),
@@ -39,47 +32,57 @@ export default defineConfig(
   ...configs.strict,
   ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
+  // @ts-expect-error ignore type errors
+  solid.configs['flat/typescript']
   {
     files: ['src/**/*.{ts,tsx}'],
-    ...solid,
+    // ...solid,
     languageOptions: {
       parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        project: './tsconfig.json',
         tsconfigRootDir: __dirname,
+        projectService: {
+          allowDefaultProject: [ 'eslint.config.ts' ],
+        },
       },
     },
-    extends: [
-      importPlugin.flatConfigs.recommended,
-      importPlugin.flatConfigs.typescript,
-    ],
     plugins: {
       '@stylistic': stylistic,
     },
     settings: {
-      'import/parsers': {
-        espree: ['.js', '.cjs', '.mjs'],
-        '@typescript-eslint/parser': ['.ts'],
-      },
-      'import/internal-regex': '^~/',
-      'import/resolver': {
-        node: true,
-        typescript: true,
-      },
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+        createNodeResolver(),
+      ],
     },
     rules: {
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/quotes': ['error', 'single'],
-      'import/namespace': 'off',
-      'import/no-unresolved': 'off',
-      'import/default': 'off',
-      'import/no-duplicates': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
+
+      'import-x/order': [
+        'error',
+        {
+          'groups': [
+            // Imports of builtins are first
+            'builtin',
+            // Then sibling and parent imports. They can be mingled together
+            ['sibling', 'parent'],
+            // Then index file imports
+            'index',
+            // Then any arcane TypeScript imports
+            'object',
+            // Then the omitted imports: internal, external, type, unknown
+          ],
+        },
+      ],
     },
   },
 );

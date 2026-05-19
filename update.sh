@@ -14,9 +14,8 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-rm -rf node_modules && bun i && bun audit; bun update && bun lint-fix && bun run build
-result=$?
-if [ $result -ne 0 ]; then
+
+if ! (rm -rf node_modules && bun i && bun audit; bun update --latest && bun run --bun lint-fix && bun run --bun build); then
   cd "${CUR}" || exit
   exit $result
 fi
