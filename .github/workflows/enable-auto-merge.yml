@@ -10,10 +10,7 @@ permissions:
 jobs:
   pull-request-auto-merge:
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]'
     steps:
-      - uses: actions/checkout@v6
-
       - name: Enable auto-merge for Pull Request
         run: |
           gh pr review --approve "$PR_URL"
