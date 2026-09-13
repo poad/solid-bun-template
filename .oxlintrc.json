@@ -7,10 +7,7 @@
   "categories": {
     "correctness": "off"
   },
-  "jsPlugins": [
-    "eslint-plugin-solid",
-    { "name": "promise-js", "specifier": "eslint-plugin-promise" }
-  ],
+  "jsPlugins": ["eslint-plugin-solid"],
   "rules": {},
   "overrides": [
     {
