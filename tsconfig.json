@@ -11,7 +11,5 @@
     "noEmit": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "eslint.config.ts"
-  ]
+  "exclude": ["eslint.config.ts"]
 }

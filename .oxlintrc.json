@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "options": {
+    "typeAware": true
+  },
+  "plugins": ["typescript", "import", "promise", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "off"
+  },
+  "jsPlugins": [
+    "eslint-plugin-solid",
+    { "name": "promise-js", "specifier": "eslint-plugin-promise" }
+  ],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["src/**/*.{ts,tsx}"],
+      "rules": {
+        "typescript/no-floating-promises": "error",
+        "typescript/no-misused-promises": "error",
+        "solid/jsx-no-duplicate-props": "error",
+        "solid/jsx-no-undef": ["error", { "typescriptEnabled": true }],
+        "solid/jsx-uses-vars": "error",
+        "solid/no-unknown-namespaces": "off",
+        "solid/no-innerhtml": "error",
+        "solid/jsx-no-script-url": "error",
+        "solid/components-return-once": "warn",
+        "solid/no-destructure": "error",
+        "solid/prefer-for": "error",
+        "solid/reactivity": "warn",
+        "solid/event-handlers": "warn",
+        "solid/imports": "warn",
+        "solid/style-prop": "warn",
+        "solid/no-react-deps": "warn",
+        "solid/no-react-specific-props": "warn",
+        "solid/self-closing-comp": "warn"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "**/*.d.ts",
+    "*.{js,jsx}",
+    "src/tsconfig.json",
+    "src/stories",
+    "**/*.css",
+    "node_modules/**/*",
+    "dist"
+  ]
+}
