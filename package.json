@@ -12,18 +12,18 @@
     "lint-fix": "oxfmt && oxlint --fix"
   },
   "dependencies": {
-    "@solidjs/router": "^1.0.0",
-    "eslint-plugin-solid": "^0.18.0",
-    "solid-js": "^1.9.15"
+    "@solidjs/router": "^1.0.1",
+    "eslint-plugin-solid": "^0.18.1",
+    "solid-js": "^1.9.18"
   },
   "devDependencies": {
-    "@types/node": "^26.4.1",
-    "oxfmt": "^0.68.0",
-    "oxlint": "^1.81.0",
-    "oxlint-tsgolint": "^7.0.2001",
+    "@types/node": "^26.6.6",
+    "oxfmt": "^0.76.0",
+    "oxlint": "^1.91.0",
+    "oxlint-tsgolint": "^7.0.2005",
     "typescript": "^7.0.2",
-    "vite": "^8.2.2",
-    "vite-plugin-solid": "^2.11.14"
+    "vite": "^8.3.5",
+    "vite-plugin-solid": "^2.11.15"
   },
   "overrides": {
     "@babel/helpers": ">=7.26.10",
