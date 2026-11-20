@@ -1,16 +1,18 @@
 /* @refresh reload */
 import App from './App';
-import { Router, Route } from '@solidjs/router';
+import { createRouter } from '@solidjs/router';
+import { render } from '@solidjs/web';
 import { lazy } from 'solid-js';
-import { render } from 'solid-js/web';
 const About = lazy(() => import('./pages/about'));
 
-render(
-  () => (
-    <Router>
-      <Route path="/" component={App} />
-      <Route path="/about" component={About} />
-    </Router>
-  ),
-  document.getElementById('root'),
-);
+const Router = createRouter({
+  routes: [
+    { path: '/', component: App },
+    { path: '/about', component: About },
+  ],
+});
+
+const root = document.getElementById('root');
+if (root) {
+  render(() => <Router>{(props) => props.children}</Router>, root);
+}

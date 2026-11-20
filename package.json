@@ -12,23 +12,21 @@
     "lint-fix": "oxfmt && oxlint --fix"
   },
   "dependencies": {
-    "@solidjs/router": "^1.0.1",
-    "eslint-plugin-solid": "^0.18.1",
-    "solid-js": "^1.9.18"
+    "@solidjs/router": "^2.0.1",
+    "@solidjs/web": "^2.0.3",
+    "eslint-plugin-solid": "^0.20.0",
+    "solid-js": "^2.0.3"
   },
   "devDependencies": {
+    "@solidjs/vite-plugin": "^3.0.1",
     "@types/node": "^26.6.6",
     "oxfmt": "^0.76.0",
     "oxlint": "^1.91.0",
     "oxlint-tsgolint": "^7.0.2005",
     "typescript": "^7.0.2",
-    "vite": "^8.3.5",
-    "vite-plugin-solid": "^2.11.15"
+    "vite": "^8.3.5"
   },
   "overrides": {
-    "@babel/helpers": ">=7.26.10",
-    "flatted": ">=3.4.0",
-    "picomatch": ">=2.3.2",
     "semver": ">=7"
   }
 }
